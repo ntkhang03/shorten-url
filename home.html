@@ -100,7 +100,7 @@ axios.post('http://localhost:3000/resolve', { url })
 		const currentUrl = window.location.href;
 		const getTextAreas = document.querySelectorAll('textarea');
 		getTextAreas.forEach(textarea => {
-			textarea.value = textarea.value.replace('http://localhost:3000', currentUrl);
+			textarea.value = textarea.value.replace('http://localhost:3000/', currentUrl);
 		});
 	</script>
 </body>
