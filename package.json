@@ -1,0 +1,12 @@
+{
+  "name": "shorten-url",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "stsrt": "node index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
