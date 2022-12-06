@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shorten Url</title>
+	<!-- set font for all text -->
+	<style>
+		* {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+		p {
+			margin-top: 3px;
+			margin-bottom: 3px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h3>Shorten url generator from <a href="https://www.npmjs.com/package/tinyurl">tinyurl</a></h3>
+	<hr>
+	<p>Endpoints: /shorten</p>
+	<p>Method: POST</p>
+	<p>Form Data:</p>
+	<li>url: string</li>
+	<p>Example:</p>
+	<li>url: https://google.com</li>
+	<p>Nodejs code:</p>
+	<textarea name="" id="" cols="50" rows="11">
+const axios = require('axios');
+const url = 'https://google.com';
+axios.post('http://localhost:3000/resolve', { url })
+	.then(res => {
+		console.log(res.data);
+	})
+	.catch(err => {
+		console.log(err);
+	});
+		</textarea>
+	<p>Response:</p>
+	<li>result: string if success, null if error</li>
+	<li>error: null if success, error object if error</li>
+	<hr>
+
+
+	<p>Endpoints: /shortenWithAlias</p>
+	<p>Method: POST</p>
+	<p>Form Data:</p>
+	<li>url: string</li>
+	<li>alias: string</li>
+	<p>Example:</p>
+	<li>url: https://google.com</li>
+	<li>alias: google</li>
+	<textarea name="" id="" cols="50" rows="12">
+const axios = require('axios');
+const url = 'https://google.com';
+const alias = 'google';
+axios.post('http://localhost:3000/shortenWithAlias', { url, alias })
+	.then(res => {
+		console.log(res.data);
+	})
+	.catch(err => {
+		console.log(err);
+	});
+		</textarea>
+	<p>Response:</p>
+	<li>result: string if success, null if error</li>
+	<li>error: null if success, error object if error</li>
+	<hr>
+
+
+	<p>Endpoints: /resolve</p>
+	<p>Method: POST</p>
+	<p>Form Data:</p>
+	<li>url: string</li>
+	<p>Example:</p>
+	<li>url: https://tinyurl.com/3x7j5j2w</li>
+	<textarea name="" id="" cols="50" rows="11">
+const axios = require('axios');
+const url = 'https://tinyurl.com/3x7j5j2w';
+axios.post('http://localhost:3000/resolve', { url })
+	.then(res => {
+		console.log(res.data);
+	})
+	.catch(err => {
+		console.log(err);
+	});
+		</textarea>
+
+	<p>Response:</p>
+	<li>result: string if success, null if error</li>
+	<li>error: null if success, error object if error</li>
+
+	<script>
+		const currentUrl = window.location.href;
+		const getTextAreas = document.querySelectorAll('textarea');
+		getTextAreas.forEach(textarea => {
+			textarea.value = textarea.value.replace('http://localhost:3000', currentUrl);
+		});
+	</script>
+</body>
