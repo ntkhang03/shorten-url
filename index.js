@@ -4,6 +4,7 @@ const tinyurl = require('tinyurl');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded());
+const PORT = process.env.PORT || 5000;
 
 app.post('/shorten', async (req, res) => {
 	try {
@@ -43,4 +44,4 @@ app.get('/', async (req, res) => {
 	res.sendFile(__dirname + '/home.html');
 });
 
-app.listen(3000, () => console.log('Server started at http://localhost:3000'));
+app.listen(PORT, () => console.log('Server started at http://localhost:' + PORT));
